@@ -1,0 +1,14 @@
+server:
+  host: "irc.grove.io"
+  port: 6697
+  ssl: true
+  password: company_name
+  channels: ["#company_name"]
+
+identity:
+  username: bot_name
+  nick: bot_name
+  nickserv: bot_password
+  
+plugins:
+  music_path: "/Users/callumj/Music/iTunes/iTunes Media/Music/"
