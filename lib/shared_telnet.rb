@@ -11,10 +11,10 @@ module HelperLib
     end
     
     def initialize(id, host, port)
-      @session = Net::Telnet::new("Host" => host, "Port" => port)
+      @session = Net::Telnet::new("Host" => host, "Port" => port) rescue nil
       
       @@instances = {} if @@instances.nil?
-      @@instances[id.to_sym] = self
+      @@instances[id.to_sym] = self unless self.session.nil?
     end
     
     def command(msg)

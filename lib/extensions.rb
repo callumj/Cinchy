@@ -1,8 +1,2 @@
-module Cinch
-
-  class Bot
-    
-    attr_reader :events
-    
-  end
-end
+Cinch::Bot.send :include, Cinchy::Extensions::Bot
+Hash.send :include, Cinchy::Extensions::Hash

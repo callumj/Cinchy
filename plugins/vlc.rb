@@ -7,7 +7,11 @@ module BotPlugins
     help "Controls a VLC instance"
     
     def execute(m, params)
-      HelperLib::SharedTelnet.instance(:vlc).command(params)
+      if HelperLib::SharedTelnet.instance(:vlc).nil?
+        m.reply("VLC instance not running")
+      else
+        HelperLib::SharedTelnet.instance(:vlc).command(params)
+      end
     end
   end
 end
