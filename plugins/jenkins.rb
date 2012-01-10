@@ -33,7 +33,7 @@ module BotPlugins
             run_time = "Executed at #{Time.at(last_run["timestamp"]/1000).to_s}"
             in_progress = last_run["building"]
           end
-          m.reply("Job '#{job_status["name"]}'#{in_progress ? "(in progress)" : ""} is #{status}")
+          m.reply("Job '#{job_status["name"]}' is #{status}#{in_progress ? " (in progress)" : ""}")
           m.reply("   #{run_time}") if run_time.length > 0
           m.reply("   #{job_status["healthReport"].last["description"]}")
         end
