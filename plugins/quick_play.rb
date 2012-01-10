@@ -13,7 +13,8 @@ module BotPlugins
       if HelperLib::SharedTelnet.instance(:vlc).nil?
         m.reply("VLC instance not running")
       else
-        start_path = HelperLib::SharedObject.instance(:config).music_path
+        config = HelperLib::SharedObject.instance(:config)
+        start_path = config.plugins.music_path
         path = nil
         path = params if (Pathname.new params).absolute?
         path = params unless (/^#{URI::DEFAULT_PARSER.regexp[:ABS_URI]}$/.match(params)).nil?
